@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+	<div class="row">
+		<div class="col-md-3"></div>
+		<div class="col-md-6">
+			<div class="row">
+				<div class="col-md-2">
+				</div>
+				<div class="col-md-8">					
+					<div class="card mt-5">
+					  <img class="card-img-top" src="{% static 'img/download.png' %}" alt="Card image cap">
+					  <div class="card-body">
+					    <h5 class="card-title">Sign up to see photos and videos from your friends.</h5>
+					    <a href="#" class="btn btn-sm btn-block btn-primary"><i class="fab fa-facebook-square"></i> Login with Facebook</a>
+					    <div class="row">
+					    	<div class="col-md-5">
+					    		<hr>
+					    	</div>
+						    <div class="col-md-2">
+						    	<p class="text-muted">OR</p>
+						    </div>
+						    <div class="col-md-5">
+						    	<hr>
+						    </div>
+					    </div>	
+
+					    {% include 'auth/_flash_messages.html' %}
+
+					    <form action="{% url 'register' %}" method="post">
+					    	{% csrf_token %}
+					    	<div class="from-group">
+					    		<div class="form-control">
+					    			<input class='form-control' type="email" name="email" value="{{data.email}}" placeholder="Mobile Number or Email">
+					    		</div>
+					    		<div class="form-control">
+					    			<input class='form-control' type="name" name="name" value="{{data.name}}" placeholder="Full Name">
+								</div>	
+								<div class="form-control">
+					    			<input class='form-control' type="username" name="username" value="{{data.username}}" placeholder="Username">
+								</div>	
+								<div class="form-control">
+					    			<input class='form-control' type="password" name="password" value="{{data.password}}" placeholder="Password">
+								</div>	<hr>
+						        <input type="submit" value="Register" class="btn btn-sm btn-block btn-primary"/>
+
+					    		<hr>
+					    		<div align="center">By signing up, you agree to our Terms , Data Policy and Cookies Policy .
+								</div>
+
+					    	</div>
+					    </form>					    
+					  </div>
+					</div>	
+				</div>
+				<div class="col-md-2">
+				</div>
+			</div>
+		</div>
+		<div class="col-md-3"></div>
+	</div> 
+
+
+{% endblock %}
